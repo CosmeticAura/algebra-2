@@ -354,6 +354,10 @@ S8 = {
  "cards": [], "points": [],
 }
 
+import os,sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from sectionc import UNIT_C
+
 COURSE = {
  "name": "Algebra 2",
  "eyebrow": "The Clinton School, 10th grade, 2026 to 2027",
@@ -378,5 +382,6 @@ COURSE = {
      "(ax − b) gives the zero b/a",
      "Leading coefficient = number in front × every x coefficient",
    ], "secs": {}}},
+  UNIT_C,
  ],
 }
