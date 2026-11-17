@@ -11,6 +11,7 @@ C1 = {
     ["10", "10,000", "30,000", "30x³", "−20,000 (negative)"],
     ["100", "100,000,000", "30,000,000", "x⁴", "70,000,000 (positive)"],
     ["1,000", "1,000,000,000,000", "30,000,000,000", "x⁴, by far", "970,000,000,000 (positive)"]]}},
+  {"p": "**The reason:** x⁴ is just x · x³. So comparing x⁴ with 30x³ is really comparing x with 30. When x is less than 30, 30x³ is bigger. When x is more than 30, x⁴ is bigger, and it only gets further ahead. The same thing happens with any polynomial: the highest power always has one more x multiplied in, so for a big enough x it beats everything else."},
   {"p": "Near 0 the 30x³ part is bigger and f is negative. But once x passes 30, x⁴ takes over and f is positive forever after. That's why you can ignore every term except the leading one when you decide where the ends go: x⁴ means up on both ends."},
   {"key": "To find the end behavior, look only at the leading term. Its degree (even or odd) and its sign (+ or −) tell you where the ends go."},
   {"h": "Even or odd degree (lesson 8)"},
