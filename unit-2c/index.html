@@ -979,7 +979,7 @@ function bindOverview(){
 
 /* Step 1: read */
 function stepRead(sec,s){
-  const focus=s.round>1&&s.focus.length?'<div class="focus"><b>Round '+s.round+": focus on what you missed</b><ul>"+s.focus.map(k=>"<li>"+rich(sec.points[k])+"</li>").join("")+"</ul></div>":"";
+  const focus=s.round>1&&s.focus.length?'<div class="focus"><b>Focus on what you missed last time</b><ul>'+s.focus.map(k=>"<li>"+rich(sec.points[k])+"</li>").join("")+"</ul></div>":"";
   const ss=secSteps(sec),nx=ss[ss.indexOf(0)+1],cor=ss.length>1&&ss.includes(4);
   return '<section class="panel">'+focus+(cor?'<div class="cornell"><b>Read everything, then write it in Cornell notes on paper.</b><span class="small">Cue column on the left (questions and key terms), notes on the right, a two line summary at the bottom.</span></div>':"")+'<div class="notes">'+notesHTML(sec.notes)+'</div><div class="actions"><button class="btn primary" id="go">'+(cor?"Done, notes written":"Done reading")+' <kbd>Enter</kbd></button><span class="small">'+(nx===1?"Next: a "+S.settings.breakMin+" minute brain break, skippable":nx!=null?"Next: "+STEPS[nx].toLowerCase():"")+"</span></div></section>";
 }
