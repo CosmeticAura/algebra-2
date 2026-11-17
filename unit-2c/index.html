@@ -418,51 +418,60 @@ const DECK = {
      "caption": "Only two things decide the ends: is the degree even or odd, and is the leading coefficient positive or negative."
     },
     {
-     "h": "The leading term wins"
+     "h": "What \"the leading term wins\" means"
     },
     {
-     "p": "The **leading term** is the term with the highest power. Near 0 the other terms can be bigger, but far from 0 the leading term always has the greatest value, so it decides where the ends go."
+     "p": "\"Far from 0\" means x is a really big number, positive or negative: the far right and far left of the graph. Out there, the term with the biggest power grows so much faster than the others that it decides the sign of the answer by itself."
+    },
+    {
+     "p": "Try f(x) = x⁴ − 30x³. The leading term is x⁴. Watch who's bigger as x grows:"
     },
     {
      "table": {
       "head": [
        "x",
        "x⁴",
-       "−30x³",
-       "−20x²",
-       "1,000",
-       "P(x)"
+       "30x³",
+       "Bigger",
+       "f(x) = x⁴ − 30x³"
       ],
       "rows": [
        [
-        "−100",
-        "100,000,000",
-        "30,000,000",
-        "−200,000",
-        "1,000",
-        "129,801,000"
+        "2",
+        "16",
+        "240",
+        "30x³",
+        "−224 (negative)"
        ],
        [
         "10",
         "10,000",
-        "−30,000",
-        "−2,000",
-        "1,000",
-        "−21,000"
+        "30,000",
+        "30x³",
+        "−20,000 (negative)"
        ],
        [
         "100",
         "100,000,000",
-        "−30,000,000",
-        "−200,000",
+        "30,000,000",
+        "x⁴",
+        "70,000,000 (positive)"
+       ],
+       [
         "1,000",
-        "69,801,000"
+        "1,000,000,000,000",
+        "30,000,000,000",
+        "x⁴, by far",
+        "970,000,000,000 (positive)"
        ]
       ]
      }
     },
     {
-     "p": "For P(x) = x⁴ − 30x³ − 20x² + 1000, at x = 10 the output is negative, but at x = 100 and x = −100 the x⁴ term takes over and P is huge and positive. So both ends go up."
+     "p": "Near 0 the 30x³ part is bigger and f is negative. But once x passes 30, x⁴ takes over and f is positive forever after. That's why you can ignore every term except the leading one when you decide where the ends go: x⁴ means up on both ends."
+    },
+    {
+     "key": "To find the end behavior, look only at the leading term. Its degree (even or odd) and its sign (+ or −) tell you where the ends go."
     },
     {
      "h": "Even or odd degree (lesson 8)"
@@ -531,7 +540,11 @@ const DECK = {
     ],
     [
      "Why does the leading term decide the ends?",
-     "Far from 0 it always has the greatest value, so it outweighs every other term"
+     "When x is huge (far left or right), the highest power grows much faster than every other term, so it decides the sign"
+    ],
+    [
+     "f(x) = x⁴ − 30x³ at x = 10 and x = 100: sign?",
+     "x = 10: −20,000 (30x³ bigger). x = 100: +70,000,000 (x⁴ took over)"
     ],
     [
      "P(x) = x⁴ − 30x³ − 20x² + 1000 at x = 100: which is bigger, x⁴ or 30x³?",
@@ -589,40 +602,60 @@ const DECK = {
    "quizlet": "",
    "notes": [
     {
-     "p": "**Lesson 10.** **Multiplicity** is the number of times a factor repeats, which is the power on that factor in factored form. It changes what the graph looks like at that zero."
+     "p": "**Lesson 10.** **Multiplicity** = how many times the same factor shows up. Just count it."
+    },
+    {
+     "table": {
+      "head": [
+       "Polynomial",
+       "Zero",
+       "Shows up",
+       "Multiplicity"
+      ],
+      "rows": [
+       [
+        "(x − 2)(x + 1)",
+        "2",
+        "once",
+        "1"
+       ],
+       [
+        "(x − 2)(x − 2) = (x − 2)²",
+        "2",
+        "twice",
+        "2"
+       ],
+       [
+        "(x − 2)³",
+        "2",
+        "3 times",
+        "3"
+       ]
+      ]
+     }
     },
     {
      "img": "../img/c-multiplicity.png",
      "alt": "Three zoomed graphs: multiplicity 1 crosses straight, 2 touches and bounces, 3 crosses with a flat S bend"
     },
     {
-     "table": {
-      "head": [
-       "Multiplicity",
-       "At the zero the graph",
-       "Looks like"
-      ],
-      "rows": [
-       [
-        "1 (odd)",
-        "crosses the axis straight",
-        "a line"
-       ],
-       [
-        "2 (even)",
-        "touches the axis and turns back",
-        "a parabola, x²"
-       ],
-       [
-        "3 (odd)",
-        "crosses, flattening out as it goes through",
-        "x³"
-       ]
-      ]
-     }
+     "key": "Odd number of times (1, 3): the graph goes **through** the axis. Even number of times (2, 4): the graph **touches and bounces back**."
     },
     {
-     "key": "Odd multiplicity crosses. Even multiplicity bounces. Higher power = flatter at the zero."
+     "h": "Why even bounces"
+    },
+    {
+     "p": "A squared number is never negative. Near x = 2, (x − 2)² is a tiny positive number on both sides, so the graph comes down, touches 0 at x = 2, and goes back up the same side. With (x − 2) to an odd power, the sign flips from negative to positive as you pass 2, so the graph has to cross."
+    },
+    {
+     "h": "Examples"
+    },
+    {
+     "list": [
+      "y = (x − 1)(x + 2)²: at **1** it crosses (once), at **−2** it bounces (twice).",
+      "y = x³(x − 4): at **0** it crosses but flattens out like x³ (3 times), at **4** it crosses straight (once).",
+      "y = (x + 3)²(x − 4): bounces at **−3**, crosses at **4**. See the graph below."
+     ]
     },
     {
      "h": "Degree from factored form"
@@ -656,7 +689,15 @@ const DECK = {
    "cards": [
     [
      "What is multiplicity?",
-     "How many times a factor repeats: the power on the factor in factored form"
+     "How many times the same factor shows up: the power on it in factored form"
+    ],
+    [
+     "Why does an even multiplicity bounce?",
+     "A squared factor is never negative, so the graph stays on the same side of the axis"
+    ],
+    [
+     "What happens at each zero of y = (x − 1)(x + 2)²?",
+     "Crosses at 1, bounces at −2"
     ],
     [
      "What does the graph do at a zero with multiplicity 1?",
@@ -749,7 +790,49 @@ const DECK = {
      "p": "Don't divide both sides by (x − 8). It looks faster but you lose the solution x = 8."
     },
     {
-     "h": "Another example"
+     "h": "The steps, every time"
+    },
+    {
+     "list": [
+      "**1.** Set them equal: f(x) = g(x).",
+      "**2.** Move everything to one side so it equals 0.",
+      "**3.** Factor (pull out a common factor if both sides share one).",
+      "**4.** Set each factor = 0 and solve for x.",
+      "**5.** Plug each x into f to get y. Those are the points."
+     ]
+    },
+    {
+     "h": "Example 1: no common factor"
+    },
+    {
+     "p": "Where do f(x) = x² and g(x) = x + 2 meet?"
+    },
+    {
+     "list": [
+      "x² = x + 2",
+      "x² − x − 2 = 0",
+      "(x − 2)(x + 1) = 0",
+      "x = 2 or x = −1",
+      "f(2) = 4, f(−1) = 1, so the points are **(2, 4) and (−1, 1)**"
+     ]
+    },
+    {
+     "h": "Example 2: a common factor"
+    },
+    {
+     "p": "Where do f(x) = (x + 1)(x − 3) and g(x) = 2(x − 3) meet? Both have (x − 3), so pull it out."
+    },
+    {
+     "list": [
+      "(x + 1)(x − 3) − 2(x − 3) = 0",
+      "(x − 3)[(x + 1) − 2] = 0",
+      "(x − 3)(x − 1) = 0",
+      "x = 3 or x = 1",
+      "f(3) = 0, f(1) = (2)(−2) = −4, so the points are **(3, 0) and (1, −4)**. Check with g: g(1) = 2(−2) = −4. Same."
+     ]
+    },
+    {
+     "h": "Example 3: three answers"
     },
     {
      "p": "Where do f(x) = x³ and g(x) = 4x meet? x³ − 4x = 0, so x(x² − 4) = x(x − 2)(x + 2) = 0. x = 0, 2, −2, and the points are **(0, 0), (2, 8), (−2, −8)**."
@@ -798,6 +881,14 @@ const DECK = {
     [
      "Once you have the x values, how do you get the points?",
      "Plug each x into f (or g) to get the y value"
+    ],
+    [
+     "Intersections of f(x) = x² and g(x) = x + 2",
+     "(2, 4) and (−1, 1)"
+    ],
+    [
+     "Intersections of f(x) = (x + 1)(x − 3) and g(x) = 2(x − 3)",
+     "(3, 0) and (1, −4)"
     ]
    ],
    "points": [
