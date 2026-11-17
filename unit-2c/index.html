@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><meta name="color-scheme" content="light">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Algebra 2 unit 2C</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<script>try{document.documentElement.dataset.theme="light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
 <style>
 /* Hector's personal design: Apple grouped look, light first, graphite for structure, green only for done. Dark is an in-app choice (Appearance: System, Light, Dark). */
@@ -27,8 +27,8 @@
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
   --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
 }
-:root[data-theme="dark"]{
-  color-scheme:dark;
+:root[data-theme="never-dark"]{
+  color-scheme:light;
   --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
   --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
   --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
@@ -36,9 +36,9 @@
   --accent-wash:rgb(118 118 128 / .24);
   --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
 }
-@media (prefers-color-scheme:dark){
-  :root[data-theme="system"]{
-    color-scheme:dark;
+@media (prefers-color-scheme:never-dark){
+  :root[data-theme="never-system"]{
+    color-scheme:light;
     --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
     --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
     --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
@@ -207,8 +207,8 @@ kbd{font:500 11px/1 var(--font);color:var(--ink-3);border:1px solid var(--line-e
 .card .pic.sm{max-height:110px;margin-bottom:var(--space-inline)}
 .card .ask{font-size:13px;color:var(--ink-3);margin-top:var(--space-inline)}
 .card .name{font-size:20px;font-weight:600;margin-bottom:6px}
-:root[data-theme="dark"] .card .pic{filter:invert(1);mix-blend-mode:screen}
-@media (prefers-color-scheme:dark){:root[data-theme="system"] .card .pic{filter:invert(1);mix-blend-mode:screen}}
+:root[data-theme="never-dark"] .card .pic{filter:invert(1);mix-blend-mode:screen}
+@media (prefers-color-scheme:never-dark){:root[data-theme="never-system"] .card .pic{filter:invert(1);mix-blend-mode:screen}}
 .sides{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-row)}.sides .sp{display:inline-flex;align-items:center;gap:6px}.sides .sp .small{margin-right:2px}
 .card .hint{position:absolute;bottom:12px;font-size:12px;color:var(--ink-3)}
 .card.flash-ok{animation:ok .35s ease-out}
@@ -352,13 +352,13 @@ body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
 .c-alk{--cat:#bfe0e2;--cat-ink:#10302f}.c-ae{--cat:#f0c9cf;--cat-ink:#3a141b}.c-tm{--cat:#d6d0f0;--cat-ink:#221a44}.c-pt{--cat:#c7e3d3;--cat-ink:#12321f}
 .c-md{--cat:#ece0b0;--cat-ink:#3a2e08}.c-nm{--cat:#c9d8f2;--cat-ink:#14254a}.c-ng{--cat:#ecc6d2;--cat-ink:#3d1422}.c-la{--cat:#bcd6ec;--cat-ink:#0e2c46}
 .c-ac{--cat:#ecd0bd;--cat-ink:#3d200c}.c-un{--cat:#dcdcdf;--cat-ink:#2a2a2e}
-:root[data-theme="dark"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="dark"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="dark"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="dark"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
-:root[data-theme="dark"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="dark"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="dark"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="dark"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
-:root[data-theme="dark"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="dark"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
-@media (prefers-color-scheme:dark){
-:root[data-theme="system"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="system"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="system"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="system"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
-:root[data-theme="system"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="system"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="system"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="system"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
-:root[data-theme="system"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="system"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
+:root[data-theme="never-dark"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="never-dark"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="never-dark"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="never-dark"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
+:root[data-theme="never-dark"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="never-dark"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="never-dark"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="never-dark"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
+:root[data-theme="never-dark"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="never-dark"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
+@media (prefers-color-scheme:never-dark){
+:root[data-theme="never-system"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="never-system"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="never-system"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="never-system"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
+:root[data-theme="never-system"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="never-system"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="never-system"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="never-system"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
+:root[data-theme="never-system"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="never-system"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
 }
 .ptlegend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2)}
 .lgi{display:inline-flex;align-items:center;gap:6px}

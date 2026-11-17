@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
-<head>
+<head><meta name="color-scheme" content="light">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Algebra 2</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<script>try{document.documentElement.dataset.theme="light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
 <style>
 /* Hector's personal design: Apple grouped look, light first, graphite for structure. Dark is an in-page choice (Appearance: System, Light, Dark). */
@@ -26,8 +26,8 @@
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
   --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
 }
-:root[data-theme="dark"]{
-  color-scheme:dark;
+:root[data-theme="never-dark"]{
+  color-scheme:light;
   --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
   --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
   --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
@@ -35,9 +35,9 @@
   --accent-wash:rgb(118 118 128 / .24);
   --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
 }
-@media (prefers-color-scheme:dark){
-  :root[data-theme="system"]{
-    color-scheme:dark;
+@media (prefers-color-scheme:never-dark){
+  :root[data-theme="never-system"]{
+    color-scheme:light;
     --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
     --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
     --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
