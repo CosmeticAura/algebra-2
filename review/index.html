@@ -373,7 +373,27 @@ body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
 .seg button{font:inherit;font-size:13px;font-weight:500;border:0;background:none;padding:6px 14px;border-radius:7px;cursor:pointer;color:var(--ink-2)}
 .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgb(0 0 0 / .12)}
 </style>
-</head>
+<style id="cornellcss">
+@media (min-width:1180px){.wrap.withnotes{max-width:1640px;grid-template-columns:230px minmax(0,1fr) 400px}}
+.cornell{background:#fff;border:1px solid rgb(0 0 0 / .08);border-radius:16px;box-shadow:0 1px 3px rgb(0 0 0 / .05);padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px;color:#1d1d1f}
+aside.cornell{position:sticky;top:72px;align-self:start;max-height:calc(100vh - 88px);overflow:auto}
+section.cornell{margin-top:20px}
+.cornell .ch{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.cornell h3{margin:0;font-size:15px;font-weight:600}
+.cornell .sec{font-size:12px;color:#6e6e73;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
+.cornell .cg{display:grid;grid-template-columns:38% 62%;border-top:1px solid rgb(0 0 0 / .12);border-bottom:1px solid rgb(0 0 0 / .12)}
+.cornell .col{display:flex;flex-direction:column;min-width:0}
+.cornell .col+.col{border-left:2px solid #ff9f9a}
+.cornell .lab{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#6e6e73;padding:8px 8px 2px}
+.cornell textarea{border:0;resize:none;overflow:hidden;width:100%;min-height:336px;padding:4px 8px 8px;font:inherit;font-size:14px;line-height:28px;background:repeating-linear-gradient(transparent 0 27px,rgb(0 122 255 / .16) 27px 28px);background-attachment:local;outline:none;color:#1d1d1f;box-sizing:border-box}
+.cornell .col:first-child textarea{color:#0a5cc2;font-weight:500}
+.cornell .sum .lab{padding-left:0}
+.cornell .sum textarea{min-height:84px;padding-left:0;padding-right:0}
+.cornell .foot{display:flex;gap:10px;align-items:center}
+.cornell .foot button{font:inherit;font-size:13px;border:1px solid rgb(0 0 0 / .12);background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer;color:#007aff}
+.cornell .saved{font-size:12px;color:#8e8e93}
+.cornell textarea::placeholder{color:#c7c7cc}
+</style></head>
 <body>
 <header class="bar"><div class="bar-in">
   <a class="home" id="home" href="../index.html" hidden>&lsaquo; All units</a><h1 id="title"></h1><span class="sub" id="sub"></span><span class="grow"></span>
@@ -403,12 +423,16 @@ const DECK = {
    "+ even ↑↑, − even ↓↓, + odd ↓↑, − odd ↑↓",
    "Multiplicity 1 crosses, 2 bounces, 3 crosses flat",
    "Degree = add the powers in factored form",
-   "Intersections: f(x) = g(x), one side = 0, factor out the common factor"
+   "Intersections: f(x) = g(x), one side = 0, factor out the common factor",
+   "Division is the box backwards, with 0 for missing powers",
+   "Factor (x − a) means zero x = a (sign flips) and remainder 0",
+   "Remainder Theorem: remainder = p(a)",
+   "Factor: common factor, difference of squares, trinomial"
   ],
   "secs": {}
  },
  "title": "Algebra 2, everything so far",
- "subtitle": "Units 2B and 2C",
+ "subtitle": "Units 2B, 2C and 2D",
  "source": "Every section from every unit so far, for cumulative review",
  "aliases": {},
  "breakMinutes": 2.5,
@@ -1804,6 +1828,389 @@ const DECK = {
    "points": [],
    "quizlet": "",
    "group": "Unit 2C, graphs of polynomials"
+  },
+  {
+   "id": "divbox",
+   "title": "Dividing with the box",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "**Lessons 12 and 13.** Polynomial division is multiplication backwards. When you multiply with a box, you know both sides and fill in the middle. When you divide, you know the **dividend** (the product) and one side (the **divisor**), and you fill in the other side, the **quotient**."
+    },
+    {
+     "img": "../img/d-box.png",
+     "alt": "A box with divisor x minus 2 on the side, quotient x squared plus 4x plus 3 on top, and the products inside"
+    },
+    {
+     "h": "The recipe"
+    },
+    {
+     "list": [
+      "Write the dividend with **every power**. Put a 0 for a missing one: x³ − 8 is x³ + 0x² + 0x − 8.",
+      "Put the divisor down the side. For (x − 2) that's two rows: **x** and **−2**.",
+      "Start at the left. What times x gives the first term x³? **x²**. Write x² on top, then fill its column: x · x² = x³ and −2 · x² = −2x².",
+      "Next power, x². The dividend needs 2x² and the box has −2x², so it needs **+4x²** more. x times what is 4x²? **4x**. Write +4x on top and fill the column (4x² and −8x).",
+      "Next power, x. The dividend needs −5x and the box has −8x, so it needs **+3x** more. x · 3 = 3x, so write **+3** on top. Fill the column (3x and −6).",
+      "Last, the constant. The dividend has −6 and the box has −6. Nothing is left over, so the **remainder is 0**."
+     ]
+    },
+    {
+     "key": "What's on top is the quotient: x² + 4x + 3. What's left over at the end is the remainder."
+    },
+    {
+     "h": "Missing terms: (x³ − 8) ÷ (x − 2)"
+    },
+    {
+     "p": "Write the dividend as x³ + 0x² + 0x − 8 so every power has a place."
+    },
+    {
+     "list": [
+      "Top **x²**: the column is x³ and −2x².",
+      "x² needs 0 and the box has −2x², so it needs **+2x²**: top **+2x** (2x² and −4x).",
+      "x needs 0 and the box has −4x, so it needs **+4x**: top **+4** (4x and −8).",
+      "Constant: −8 and −8. Remainder 0.",
+      "Quotient: **x² + 2x + 4**."
+     ]
+    },
+    {
+     "h": "A division with a remainder"
+    },
+    {
+     "p": "(2x³ − 3x² − 8x + 5) ÷ (x − 3)"
+    },
+    {
+     "list": [
+      "Top **2x²**: the column is 2x³ and −6x².",
+      "x² needs −3x² and the box has −6x², so it needs **+3x²**: top **+3x** (3x² and −9x).",
+      "x needs −8x and the box has −9x, so it needs **+1x**: top **+1** (x and −3).",
+      "Constant: the dividend has 5 and the box has −3, so **8 is left over**. That's the remainder.",
+      "Quotient **2x² + 3x + 1**, remainder **8**."
+     ]
+    },
+    {
+     "p": "Write it two ways. As a quotient: (2x³ − 3x² − 8x + 5) ÷ (x − 3) = 2x² + 3x + 1 + 8/(x − 3). As a multiplication: 2x³ − 3x² − 8x + 5 = (x − 3)(2x² + 3x + 1) + 8."
+    },
+    {
+     "p": "Check: (x − 3)(2x² + 3x + 1) = 2x³ − 3x² − 8x − 3. Add the 8 and you get the dividend back."
+    }
+   ],
+   "cards": [
+    [
+     "What is polynomial division with the box?",
+     "Multiplication backwards: divisor on the side, quotient on top, the boxes add up to the dividend"
+    ],
+    [
+     "x³ − 8 written with every power",
+     "x³ + 0x² + 0x − 8"
+    ],
+    [
+     "(x³ + 2x² − 5x − 6) ÷ (x − 2)",
+     "x² + 4x + 3, remainder 0"
+    ],
+    [
+     "(x³ − 8) ÷ (x − 2)",
+     "x² + 2x + 4, remainder 0"
+    ],
+    [
+     "(2x³ − 3x² − 8x + 5) ÷ (x − 3)",
+     "2x² + 3x + 1, remainder 8"
+    ],
+    [
+     "(2x³ − 3x² − 8x + 5) ÷ (x − 3) as quotient + remainder/divisor",
+     "2x² + 3x + 1 + 8/(x − 3)"
+    ],
+    [
+     "The same division as a multiplication equation",
+     "2x³ − 3x² − 8x + 5 = (x − 3)(2x² + 3x + 1) + 8"
+    ],
+    [
+     "First step in the box",
+     "What times the divisor's first term gives the dividend's first term? That is the first term on top"
+    ],
+    [
+     "How do you find each next term on top?",
+     "Dividend needs this much, the box has that much. Make up the difference, then divide by x"
+    ],
+    [
+     "Where is the remainder?",
+     "What's left over in the constant: the dividend's last term minus what the box has"
+    ],
+    [
+     "How do you check a division?",
+     "divisor × quotient + remainder = dividend"
+    ]
+   ],
+   "points": [
+    "Division is the box backwards: divisor on the side, quotient on top",
+    "Write every power, with 0 for a missing one",
+    "Work left to right: needed minus what the box has, divided by x",
+    "(x³ + 2x² − 5x − 6) ÷ (x − 2) = x² + 4x + 3",
+    "(x³ − 8) ÷ (x − 2) = x² + 2x + 4",
+    "(2x³ − 3x² − 8x + 5) ÷ (x − 3) = 2x² + 3x + 1 with remainder 8",
+    "Write the result as dividend = divisor · quotient + remainder"
+   ],
+   "group": "Unit 2D, polynomial division"
+  },
+  {
+   "id": "remfac",
+   "title": "Factors, zeros and the Remainder Theorem",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "**Lessons 14 and 15.** Division connects four ideas that all say the same thing."
+    },
+    {
+     "key": "(x − a) is a **factor**, x = a is a **zero**, p(a) = 0, and the **remainder is 0** when you divide by (x − a)."
+    },
+    {
+     "table": {
+      "head": [
+       "If you see",
+       "It means"
+      ],
+      "rows": [
+       [
+        "Factor (x − 2)",
+        "Zero at x = 2 (the sign flips)"
+       ],
+       [
+        "Factor (x + 5)",
+        "Zero at x = −5"
+       ],
+       [
+        "Zero at x = −1",
+        "Factor (x + 1)"
+       ],
+       [
+        "Remainder 0 when dividing by (x + 5)",
+        "(x + 5) is a factor and x = −5 is a zero"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "The Remainder Theorem"
+    },
+    {
+     "p": "When you divide p(x) by (x − a), the remainder is **p(a)**. You don't have to divide. Plug in a."
+    },
+    {
+     "list": [
+      "p(x) = x³ − 4x² + x + 7 divided by (x − 2): p(2) = 8 − 16 + 2 + 7 = **1**. The remainder is 1, so (x − 2) is **not** a factor.",
+      "Check on 2x³ − 3x² − 8x + 5 divided by (x − 3): p(3) = 54 − 27 − 24 + 5 = 8. That matches the remainder from the box."
+     ]
+    },
+    {
+     "h": "Finding an unknown coefficient"
+    },
+    {
+     "p": "p(x) = x³ + kx² − x − 10 has the factor (x − 2), so p(2) = 0."
+    },
+    {
+     "list": [
+      "8 + 4k − 2 − 10 = 0",
+      "4k − 4 = 0",
+      "**k = 1**"
+     ]
+    },
+    {
+     "h": "Writing a polynomial as linear factors"
+    },
+    {
+     "p": "The box gave x³ + 2x² − 5x − 6 = (x − 2)(x² + 4x + 3). Factor the trinomial: two numbers that multiply to 3 and add to 4 are 1 and 3, so x² + 4x + 3 = (x + 1)(x + 3)."
+    },
+    {
+     "key": "p(x) = (x − 2)(x + 1)(x + 3). Zeros: 2, −1, −3."
+    },
+    {
+     "h": "A degree 4 example"
+    },
+    {
+     "p": "q(x) = x⁴ − 3x³ − 7x² + 15x + 18 with known factors (x + 1) and (x − 3)."
+    },
+    {
+     "list": [
+      "Divide by (x + 1) with the box. You get **x³ − 4x² − 3x + 18**.",
+      "Divide that by (x − 3). You get **x² − x − 6**.",
+      "Factor it: x² − x − 6 = (x − 3)(x + 2)."
+     ]
+    },
+    {
+     "p": "Put it together: q(x) = (x + 1)(x − 3)(x − 3)(x + 2) = **(x + 1)(x + 2)(x − 3)²**."
+    },
+    {
+     "img": "../img/d-graph.png",
+     "alt": "Graph of q of x crossing at minus 2 and minus 1, bouncing at 3, both ends up"
+    },
+    {
+     "p": "Degree 4 with a positive leading coefficient, so **both ends go up**. Zeros at −2 and −1 have multiplicity 1, so the graph **crosses**. The zero at 3 has multiplicity 2, so it **bounces**. The y-intercept is 18."
+    }
+   ],
+   "cards": [
+    [
+     "Factor (x − 2): what is the zero?",
+     "x = 2"
+    ],
+    [
+     "Factor (x + 5): what is the zero?",
+     "x = −5 (the sign flips)"
+    ],
+    [
+     "Zero at x = −1: what is the factor?",
+     "(x + 1)"
+    ],
+    [
+     "Remainder 0 when dividing by (x + 5). What do you know?",
+     "(x + 5) is a factor and x = −5 is a zero"
+    ],
+    [
+     "The Remainder Theorem",
+     "Dividing p(x) by (x − a) leaves remainder p(a)"
+    ],
+    [
+     "Remainder of (x³ − 4x² + x + 7) ÷ (x − 2)",
+     "p(2) = 1, so the remainder is 1 and (x − 2) is not a factor"
+    ],
+    [
+     "x³ + kx² − x − 10 has factor (x − 2). Find k.",
+     "p(2) = 0 → 4k − 4 = 0 → k = 1"
+    ],
+    [
+     "x² + 4x + 3 factored",
+     "(x + 1)(x + 3): numbers that multiply to 3 and add to 4"
+    ],
+    [
+     "x³ + 2x² − 5x − 6 as three linear factors",
+     "(x − 2)(x + 1)(x + 3)"
+    ],
+    [
+     "x⁴ − 3x³ − 7x² + 15x + 18 as linear factors",
+     "(x + 1)(x + 2)(x − 3)²"
+    ],
+    [
+     "Graph of (x + 1)(x + 2)(x − 3)²",
+     "Both ends up. Crosses at −2 and −1, bounces at 3. y-intercept 18"
+    ],
+    [
+     "A remainder that isn't 0 means",
+     "The divisor is not a factor"
+    ]
+   ],
+   "points": [
+    "Factor (x − a) ↔ zero x = a, and the sign flips",
+    "Remainder 0 means factor and zero",
+    "Remainder Theorem: remainder = p(a)",
+    "Remainder 1 for (x³ − 4x² + x + 7) ÷ (x − 2), so not a factor",
+    "k = 1 from p(2) = 0",
+    "x³ + 2x² − 5x − 6 = (x − 2)(x + 1)(x + 3)",
+    "x⁴ − 3x³ − 7x² + 15x + 18 = (x + 1)(x + 2)(x − 3)²",
+    "Even degree, positive: both ends up. Bounce at 3, cross at −2 and −1"
+   ],
+   "group": "Unit 2D, polynomial division"
+  },
+  {
+   "id": "factoring",
+   "title": "Factoring toolkit",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "Division and the Remainder Theorem leave you with factors to break down. Three moves cover almost everything in this section."
+    },
+    {
+     "list": [
+      "**Pull out the common factor first.** x³ − 9x has an x in both terms: x(x² − 9).",
+      "**Difference of squares:** a² − b² = (a − b)(a + b). So x² − 9 = (x − 3)(x + 3). All together: **x(x − 3)(x + 3)**, so the zeros are **0, 3, −3**.",
+      "**Trinomial x² + bx + c:** find two numbers that multiply to c and add to b. For x² − 5x + 6 they multiply to 6 and add to −5, so −2 and −3. That gives (x − 2)(x − 3)."
+     ]
+    },
+    {
+     "h": "Finding where two graphs meet"
+    },
+    {
+     "p": "f(x) = x² − 4x and g(x) = x − 6."
+    },
+    {
+     "list": [
+      "Set equal: x² − 4x = x − 6",
+      "Move everything to one side: **x² − 5x + 6 = 0**",
+      "Factor: (x − 2)(x − 3) = 0",
+      "So **x = 2** and **x = 3**",
+      "Plug into g: g(2) = −4 and g(3) = −3",
+      "Points: **(2, −4)** and **(3, −3)**"
+     ]
+    },
+    {
+     "h": "A lone x is a zero too"
+    },
+    {
+     "p": "f(x) = (x − 4)(2x + 6)x has three factors, so it has three zeros."
+    },
+    {
+     "list": [
+      "x − 4 = 0 → **4**",
+      "2x + 6 = 0 → 2x = −6 → **−3**",
+      "x = 0 → **0** (a lone x is the factor (x − 0))"
+     ]
+    },
+    {
+     "key": "Zeros: 4, −3, 0."
+    }
+   ],
+   "cards": [
+    [
+     "x³ − 9x factored completely",
+     "x(x − 3)(x + 3)"
+    ],
+    [
+     "Zeros of x³ − 9x",
+     "0, 3, −3"
+    ],
+    [
+     "First move when factoring",
+     "Pull out the common factor"
+    ],
+    [
+     "x² − 9 factored",
+     "(x − 3)(x + 3), a difference of squares"
+    ],
+    [
+     "a² − b² factors as",
+     "(a − b)(a + b)"
+    ],
+    [
+     "x² − 5x + 6 factored",
+     "(x − 2)(x − 3): numbers that multiply to 6 and add to −5"
+    ],
+    [
+     "Where do x² − 4x and x − 6 meet?",
+     "(2, −4) and (3, −3)"
+    ],
+    [
+     "Steps to find an intersection",
+     "Set equal, move to one side, factor, solve, plug in for y"
+    ],
+    [
+     "Zeros of (x − 4)(2x + 6)x",
+     "4, −3 and 0"
+    ],
+    [
+     "Solve 2x + 6 = 0",
+     "x = −3"
+    ],
+    [
+     "A lone x factor gives which zero?",
+     "x = 0"
+    ]
+   ],
+   "points": [
+    "Pull out the common factor first",
+    "a² − b² = (a − b)(a + b)",
+    "x³ − 9x = x(x − 3)(x + 3), zeros 0, 3, −3",
+    "Trinomial: multiply to c, add to b",
+    "x² − 4x = x − 6 gives (2, −4) and (3, −3)",
+    "(x − 4)(2x + 6)x has zeros 4, −3, 0"
+   ],
+   "group": "Unit 2D, polynomial division"
   }
  ]
 };
@@ -1848,7 +2255,7 @@ let ac=null;
 function chime(){if(!S.settings.sound)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();[660,880].forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type="sine";o.frequency.value=f;const t=ac.currentTime+i*.18;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.18,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+.6);o.connect(g).connect(ac.destination);o.start(t);o.stop(t+.65)})}catch(e){}}
 
 function statusOf(id){const s=S.sec[id];return s?s.status:"new"}
-function statusLabel(id){const s=S.sec[id];if(!s||s.status==="new")return "Not started";if(s.status==="done")return "Done";if(s.status==="revisit")return "Loop again";return "Round "+s.round+", "+STEPS[s.step].toLowerCase()}
+function statusLabel(id){const s=S.sec[id];if(!s||s.status==="new")return "Not started";if(s.status==="done")return "Done";if(s.status==="revisit")return "Loop again";return "On "+STEPS[s.step].toLowerCase()}
 
 function renderBar(){
   $("#title").textContent=DECK.title;{const h=$("#home");if(h&&DECK.home){h.href=DECK.home;h.hidden=false}}
@@ -2326,5 +2733,28 @@ fromHash();addEventListener("hashchange",fromHash);
   document.getElementById('ckZo').onclick = function(){ keyh = Math.max(32, keyh - 6); st('chemmock:ck', keyh); apply(); };
 })();
 </script>
-</body>
+<script id="cornelljs">
+(function(){
+ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+ const wide=matchMedia("(min-width:1180px)");
+ function readStep(){const b=[...document.querySelectorAll(".steps button")].find(x=>x.classList.contains("now"));return b&&/read/i.test(b.textContent)}
+ function fit(d){const a=d.querySelectorAll(".cg textarea");a.forEach(x=>x.style.height="auto");const h=Math.max(336,...[...a].map(x=>x.scrollHeight));a.forEach(x=>x.style.height=h+"px");const s=d.querySelector(".sum textarea");s.style.height="auto";s.style.height=Math.max(84,s.scrollHeight)+"px"}
+ function add(){
+  const wrap=document.querySelector(".wrap"),h=document.querySelector("h2");
+  let ex=document.getElementById("cornell");
+  if(!wrap||!h||!readStep()){if(ex)ex.remove();if(wrap)wrap.classList.remove("withnotes");return}
+  const key="cornell:"+document.title+":"+h.textContent.trim(),side=wide.matches;
+  if(ex&&ex.dataset.key===key&&ex.dataset.side===String(side))return;if(ex)ex.remove();
+  const d=document.createElement(side?"aside":"section");d.className="cornell";d.id="cornell";d.dataset.key=key;d.dataset.side=String(side);
+  const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  d.innerHTML='<div class="ch"><h3>Cornell notes</h3><span class="sec">'+esc(h.textContent.trim())+'</span></div><div class="cg"><div class="col"><span class="lab">Cues</span><textarea data-f="q" placeholder="Questions and key words"></textarea></div><div class="col"><span class="lab">Notes</span><textarea data-f="n" placeholder="Notes in your own words, next to the cue they answer"></textarea></div></div><div class="sum"><span class="lab">Summary</span><textarea data-f="s" placeholder="Two lines on what this section is about"></textarea></div><div class="foot"><button type="button" data-copy>Copy notes</button><span class="saved">Saved on this device</span></div>';
+  if(side){wrap.classList.add("withnotes");wrap.appendChild(d)}else{wrap.classList.remove("withnotes");const ps=[...document.querySelectorAll(".panel")];(ps.length?ps[ps.length-1]:wrap.lastElementChild).after(d)}
+  d.querySelectorAll("textarea").forEach(ta=>{const k=key+":"+ta.dataset.f;ta.value=store.get(k)||"";ta.addEventListener("input",()=>{store.set(k,ta.value);fit(d)});ta.addEventListener("keydown",e=>e.stopPropagation())});
+  d.querySelector("[data-copy]").onclick=()=>{const v=f=>d.querySelector('[data-f="'+f+'"]').value;const txt=h.textContent.trim()+"\n\nCUES\n"+v("q")+"\n\nNOTES\n"+v("n")+"\n\nSUMMARY\n"+v("s");if(navigator.clipboard)navigator.clipboard.writeText(txt).then(()=>{d.querySelector(".saved").textContent="Copied"})};
+  fit(d);
+ }
+ let t=null;const mo=new MutationObserver(m=>{if(m.every(r=>document.getElementById("cornell")&&document.getElementById("cornell").contains(r.target)))return;clearTimeout(t);t=setTimeout(add,60)});mo.observe(document.body,{childList:true,subtree:true});
+ wide.addEventListener("change",add);setTimeout(add,200);
+})();
+</script></body>
 </html>

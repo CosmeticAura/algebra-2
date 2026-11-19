@@ -1,6 +1,6 @@
 # Algebra 2 study site
 
-Study loop pages for Imagine IM Algebra 2, Unit 2: Section B (working with polynomials, lessons 5 to 7) and Section C (graphs of polynomials, lessons 8 to 11), plus a review page with both.
+Study loop pages for Imagine IM Algebra 2, Unit 2: Section B (working with polynomials, lessons 5 to 7), Section C (graphs of polynomials, lessons 8 to 11) and Section D (polynomial division, lessons 12 to 15), plus a review page with everything.
 
 Open it here: https://cosmeticaura.github.io/algebra-2/
 
