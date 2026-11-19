@@ -410,6 +410,11 @@ const DECK = {
  "home": "../index.html",
  "review": {
   "must": [
+   "Box volume: each side loses 2x, domain 0 < x < half the short side",
+   "Polynomial: whole number powers of x only. Degree = highest power",
+   "Constant term is the y-intercept",
+   "Degree n has at most n zeros and n − 1 turning points",
+   "Sum, difference and product of polynomials is a polynomial",
    "(x − a) → zero a, (x + a) → zero −a, x → zero 0",
    "Zeros = horizontal intercepts",
    "Constant term = P(0) = vertical intercept",
@@ -432,12 +437,376 @@ const DECK = {
   "secs": {}
  },
  "title": "Algebra 2, everything so far",
- "subtitle": "Units 2B, 2C and 2D",
+ "subtitle": "Units 2A, 2B, 2C and 2D",
  "source": "Every section from every unit so far, for cumulative review",
  "aliases": {},
  "breakMinutes": 2.5,
  "dumpMinutes": 7,
  "sections": [
+  {
+   "id": "models",
+   "title": "Polynomials as models",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "**Lessons 1 and 2.** Polynomials describe real situations. Two examples show up: the volume of a box and the balance of an investment."
+    },
+    {
+     "h": "The open top box (lesson 1)"
+    },
+    {
+     "p": "Cut a square of side **x** from each corner of a sheet of paper and fold up the sides. The box has volume = length × width × height."
+    },
+    {
+     "list": [
+      "On a 3 in by 8 in sheet, the box is (3 − 2x) wide, (8 − 2x) long and x tall.",
+      "**V(x) = (3 − 2x)(8 − 2x)(x)**, where V(x) is the volume in cubic inches.",
+      "You take x off **both ends** of each side, so each side loses 2x."
+     ]
+    },
+    {
+     "img": "../img/a-box.png",
+     "alt": "Graph of the box volume, starting at 0, rising to about 7.4 cubic inches, and returning to 0 at x equals 1.5"
+    },
+    {
+     "key": "Domain: x has to be greater than 0 and less than half the short side. For the 3 inch side, 3 − 2x > 0 gives x < 1.5. So **0 < x < 1.5**."
+    },
+    {
+     "p": "The graph starts at 0, rises to a largest volume of about **7.4 cubic inches**, and comes back to 0 at x = 1.5, when no paper is left along the short side."
+    },
+    {
+     "p": "Another sheet, 20 in by 30 in: V(x) = x(20 − 2x)(30 − 2x), and the domain is 0 < x < 10 because 20 − 2x > 0."
+    },
+    {
+     "h": "The investment (lesson 2)"
+    },
+    {
+     "p": "Invest $200 at yearly interest rate r. Let **x = 1 + r**, the growth factor. Each year the balance is multiplied by x."
+    },
+    {
+     "list": [
+      "After 1 year: 200x",
+      "After 2 years: 200x²",
+      "After 3 years: 200x³",
+      "Add $350 at the end of year 1: the balance after 2 years is (200x + 350)x = 200x² + 350x"
+     ]
+    },
+    {
+     "p": "With more deposits ($400 at the end of year 2, $150 at the end of year 3) the four year balance is **D(x) = 200x⁴ + 350x³ + 400x² + 150x**."
+    },
+    {
+     "list": [
+      "At a 4% rate, x = 1.04, and D(1.04) is about $1,216.",
+      "To end up near $2,000 you'd need x around 1.25, a 25% rate, which a bank wouldn't offer.",
+      "x < 1 would mean a negative interest rate."
+     ]
+    },
+    {
+     "h": "Polynomials and place value (lesson 2)"
+    },
+    {
+     "p": "Base 10 numbers are polynomials in disguise: 345 = 3·10² + 4·10 + 5, which is 3x² + 4x + 5 at x = 10."
+    }
+   ],
+   "cards": [
+    [
+     "Volume of the open top box from a 3 in by 8 in sheet",
+     "V(x) = (3 − 2x)(8 − 2x)(x)"
+    ],
+    [
+     "Why 2x in each side of the box?",
+     "You cut x from both ends of that side"
+    ],
+    [
+     "Domain for the 3 in by 8 in box",
+     "0 < x < 1.5"
+    ],
+    [
+     "Largest volume of the 3 in by 8 in box",
+     "About 7.4 cubic inches"
+    ],
+    [
+     "Box from a 20 in by 30 in sheet",
+     "V(x) = x(20 − 2x)(30 − 2x), domain 0 < x < 10"
+    ],
+    [
+     "Growth factor for interest rate r",
+     "x = 1 + r"
+    ],
+    [
+     "$200 after 3 years at growth factor x",
+     "200x³"
+    ],
+    [
+     "Four year balance with deposits",
+     "D(x) = 200x⁴ + 350x³ + 400x² + 150x"
+    ],
+    [
+     "D(1.04) means",
+     "The balance at a 4% rate, about $1,216"
+    ],
+    [
+     "What does x < 1 mean in the investment?",
+     "A negative interest rate"
+    ],
+    [
+     "345 as a polynomial",
+     "3x² + 4x + 5 at x = 10"
+    ]
+   ],
+   "points": [
+    "Box volume = length × width × height, with each side losing 2x",
+    "V(x) = (3 − 2x)(8 − 2x)(x), domain 0 < x < 1.5",
+    "Largest volume about 7.4 cubic inches",
+    "Growth factor x = 1 + r",
+    "D(x) = 200x⁴ + 350x³ + 400x² + 150x",
+    "A bigger deposit earlier gets more powers of x",
+    "Base 10 numbers are polynomials at x = 10"
+   ],
+   "group": "Unit 2A, what is a polynomial"
+  },
+  {
+   "id": "parts",
+   "title": "What is a polynomial",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "**Lesson 3.** A **polynomial** is a sum of terms. Each term is a number times a **whole number power** of x (0, 1, 2, 3, and so on)."
+    },
+    {
+     "table": {
+      "head": [
+       "Polynomial",
+       "Not a polynomial"
+      ],
+      "rows": [
+       [
+        "3x⁴ − 2x + 7",
+        "2^x + 1 (x is in the exponent)"
+       ],
+       [
+        "10 + 96t − 16t²",
+        "√x + 3 (power is 1/2)"
+       ],
+       [
+        "−34.1 or 7.9998x (still polynomials)",
+        "x⁻² + 4 (negative power)"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Degree** = the highest power of x. 3x − 10 has degree 1. 10 + 96t − 16t² has degree 2."
+    },
+    {
+     "h": "Reading a polynomial"
+    },
+    {
+     "list": [
+      "**Terms** are the pieces added together.",
+      "**Coefficient** is the number in front of a variable part.",
+      "**Constant term** is the term with no x. It's the y-intercept, the value at x = 0.",
+      "**Leading term** is the term with the highest power."
+     ]
+    },
+    {
+     "h": "Degree from factored form"
+    },
+    {
+     "p": "V(x) = (11 − 2x)(8.5 − 2x)(x) has three factors that each contain x, so the degree is 3. Multiply it out and you get V(x) = 4x³ − 39x² + 93.5x, which shows the degree directly."
+    },
+    {
+     "key": "In factored form, add up the powers of x in each factor to get the degree."
+    },
+    {
+     "h": "Graph shapes and turns"
+    },
+    {
+     "p": "Polynomial graphs can change direction. A **relative maximum** is a point higher than the points near it. A **relative minimum** is lower than the points near it. They're called relative because other points on the graph may be higher or lower."
+    },
+    {
+     "list": [
+      "A degree 1 graph is a line, with no turns.",
+      "A degree 3 graph can have up to 2 turns.",
+      "In general, degree n has at most n − 1 turning points and at most n zeros."
+     ]
+    }
+   ],
+   "cards": [
+    [
+     "What is a polynomial?",
+     "A sum of terms, each a number times a whole number power of x"
+    ],
+    [
+     "Is 2^x + 1 a polynomial?",
+     "No, x is in the exponent"
+    ],
+    [
+     "Is √x + 3 a polynomial?",
+     "No, the power is 1/2"
+    ],
+    [
+     "Is x⁻² + 4 a polynomial?",
+     "No, a negative power"
+    ],
+    [
+     "Is −34.1 a polynomial?",
+     "Yes, a constant is a polynomial"
+    ],
+    [
+     "Degree",
+     "The highest power of x"
+    ],
+    [
+     "Degree of (11 − 2x)(8.5 − 2x)(x)",
+     "3, one x power from each of the three factors"
+    ],
+    [
+     "Constant term meaning",
+     "The y-intercept, the value at x = 0"
+    ],
+    [
+     "Relative maximum",
+     "A point higher than the points near it"
+    ],
+    [
+     "Relative minimum",
+     "A point lower than the points near it"
+    ],
+    [
+     "Most turning points of a degree n polynomial",
+     "n − 1"
+    ],
+    [
+     "Most zeros of a degree n polynomial",
+     "n"
+    ]
+   ],
+   "points": [
+    "Polynomial: sum of terms, whole number powers of x only",
+    "2^x, √x and x⁻² are not polynomials",
+    "Degree = highest power, add the powers in factored form",
+    "Constant term is the y-intercept",
+    "Relative maximum and minimum are turning points",
+    "Degree n: at most n zeros and n − 1 turning points"
+   ],
+   "group": "Unit 2A, what is a polynomial"
+  },
+  {
+   "id": "combine",
+   "title": "Combining polynomials",
+   "quizlet": "",
+   "notes": [
+    {
+     "p": "**Lesson 4.** Adding, subtracting or multiplying two integers gives an integer. In the same way, adding, subtracting or multiplying two polynomials always gives **another polynomial**."
+    },
+    {
+     "h": "Adding and subtracting"
+    },
+    {
+     "p": "Combine like terms, the ones with the same power of x. When you subtract, change the sign of **every** term in the second polynomial."
+    },
+    {
+     "list": [
+      "(3x² − 5x + 2) − (x² + 4x − 6)",
+      "= 3x² − 5x + 2 − x² − 4x + 6",
+      "= **2x² − 9x + 8**"
+     ]
+    },
+    {
+     "h": "Multiplying with the box"
+    },
+    {
+     "p": "Multiply every part of one polynomial by every part of the other, then add. Put one polynomial across the top and the other down the side."
+    },
+    {
+     "p": "(x + 2)(x² − 3x + 1)"
+    },
+    {
+     "table": {
+      "head": [
+       "",
+       "x²",
+       "−3x",
+       "1"
+      ],
+      "rows": [
+       [
+        "x",
+        "x³",
+        "−3x²",
+        "x"
+       ],
+       [
+        "2",
+        "2x²",
+        "−6x",
+        "2"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Add everything and combine like terms: x³ − 3x² + 2x² + x − 6x + 2 = **x³ − x² − 5x + 2**."
+    },
+    {
+     "h": "A bigger example"
+    },
+    {
+     "p": "(−x² + 4.5)(x³ + 2x + √7): the six products are −x⁵, −2x³, −√7x², 4.5x³, 9x and 4.5√7. Combine the x³ terms: −2x³ + 4.5x³ = 2.5x³. The result is −x⁵ + 2.5x³ − √7x² + 9x + 4.5√7, still a polynomial even with √7 as a coefficient."
+    },
+    {
+     "key": "The degree of a product is the sum of the degrees: degree 1 times degree 2 gives degree 3."
+    }
+   ],
+   "cards": [
+    [
+     "Adding polynomials gives",
+     "Another polynomial"
+    ],
+    [
+     "Multiplying polynomials gives",
+     "Another polynomial"
+    ],
+    [
+     "When you subtract, what changes?",
+     "The sign of every term in the second polynomial"
+    ],
+    [
+     "(3x² − 5x + 2) − (x² + 4x − 6)",
+     "2x² − 9x + 8"
+    ],
+    [
+     "(x + 2)(x² − 3x + 1)",
+     "x³ − x² − 5x + 2"
+    ],
+    [
+     "How does the box multiply polynomials?",
+     "One polynomial across the top, one down the side, multiply into each box, then add like terms"
+    ],
+    [
+     "Degree of (x + 2)(x² − 3x + 1)",
+     "3, since 1 + 2 = 3"
+    ],
+    [
+     "Is a polynomial with √7 as a coefficient still a polynomial?",
+     "Yes, √7 is just a number"
+    ],
+    [
+     "Like terms",
+     "Terms with the same power of x"
+    ]
+   ],
+   "points": [
+    "Sum, difference and product of polynomials is a polynomial",
+    "Subtracting changes every sign in the second polynomial",
+    "(3x² − 5x + 2) − (x² + 4x − 6) = 2x² − 9x + 8",
+    "(x + 2)(x² − 3x + 1) = x³ − x² − 5x + 2",
+    "Use the box: every part times every part, then combine like terms",
+    "Degree of a product is the sum of the degrees"
+   ],
+   "group": "Unit 2A, what is a polynomial"
+  },
   {
    "id": "zeros",
    "title": "Factored form and zeros",
